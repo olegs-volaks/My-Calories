@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Calories</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_product">Add new product</string>
+    <string name="name">Name</string>
+    <string name="button_save">Save</string>
+    <string name="product_not_saved">Product not saved!</string>
+</resources>
