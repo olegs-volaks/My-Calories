@@ -1,4 +1,4 @@
-package com.g1a6iator.mycalories.ui.home;
+package com.g1a6iator.mycalories.ui.product;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.g1a6iator.mycalories.R;
@@ -23,6 +24,7 @@ public class NewProductActivity extends AppCompatActivity {
         EditText editName = findViewById(R.id.edit_product_name);
         EditText editDescription = findViewById(R.id.edit_product_description);
         EditText editCalories = findViewById(R.id.edit_product_calories_number);
+
         final Button saveButton = findViewById(R.id.product_button_save);
         saveButton.setOnClickListener(view -> {
             Intent replyIntent = new Intent();

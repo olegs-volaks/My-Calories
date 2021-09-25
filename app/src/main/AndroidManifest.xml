@@ -11,8 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalories">
         <activity
-            android:name=".ui.home.NewProductActivity"
-            android:exported="true" />
+            android:name=".ui.product.NewProductActivity"
+            android:exported="true"
+            android:label="@string/add_new_product" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

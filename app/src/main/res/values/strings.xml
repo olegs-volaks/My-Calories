@@ -4,7 +4,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="add_product">Add new product</string>
-    <string name="name">Name</string>
+    <string name="name">Name:</string>
     <string name="button_save">Save</string>
     <string name="product_not_saved">Product not saved!</string>
+    <string name="title_product">Products</string>
+    <string name="calories_count">Calories count:</string>
+    <string name="description">Description:</string>
+    <string name="calorie_count">Calorie count:</string>
+    <string name="add_new_product">Add new product</string>
 </resources>

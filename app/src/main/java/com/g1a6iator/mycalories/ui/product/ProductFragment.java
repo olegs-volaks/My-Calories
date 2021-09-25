@@ -1,44 +1,40 @@
-package com.g1a6iator.mycalories.ui.home;
+package com.g1a6iator.mycalories.ui.product;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.g1a6iator.mycalories.R;
 import com.g1a6iator.mycalories.adapter.ProductListAdapter;
-import com.g1a6iator.mycalories.databinding.FragmentHomeBinding;
-import com.g1a6iator.mycalories.model.Product;
+import com.g1a6iator.mycalories.databinding.FragmentProductBinding;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class HomeFragment extends Fragment {
+public class ProductFragment extends Fragment {
 
-    private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+    private ProductViewModel productViewModel;
+    private FragmentProductBinding binding;
     public static final int NEW_PRODUCT_ACTIVITY_REQUEST_CODE = 1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        productViewModel =
+                new ViewModelProvider(this).get(ProductViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentProductBinding.inflate(inflater, container, false);
         View layout = binding.getRoot();
         ActivityResultLauncher<Integer> activityResultLauncher = registerForActivityResult(new NewProductActivityContract(), result -> {
             if (result != null) {
-                homeViewModel.insert(result);
+                productViewModel.insert(result);
             } else {
                 Toast.makeText(getContext(), R.string.product_not_saved, Toast.LENGTH_LONG).show();
             }
@@ -53,9 +49,11 @@ public class HomeFragment extends Fragment {
         final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        homeViewModel.getAllProducts().observe(getViewLifecycleOwner(), products -> {
+        productViewModel.getAllProducts().observe(getViewLifecycleOwner(), products -> {
             adapter.submitList(products);
         });
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(getContext(), RecyclerView.VERTICAL);
+        recyclerView.addItemDecoration(dividerItemDecoration);
         return layout;
     }
 
