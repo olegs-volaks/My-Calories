@@ -12,7 +12,7 @@ import com.g1a6iator.mycalories.model.Product;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Product.class}, version = 1, exportSchema = false)
+@Database(entities = {Product.class}, version = 1, exportSchema = true)
 public abstract class ApplicationDatabase extends RoomDatabase {
 
     public abstract ProductDao productDao();
