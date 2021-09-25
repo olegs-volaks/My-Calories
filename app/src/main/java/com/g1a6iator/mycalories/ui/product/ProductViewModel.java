@@ -25,4 +25,8 @@ public class ProductViewModel extends ViewModel {
     public void insert(Product product) {
         mProductRepository.insert(product);
     }
+
+    public void delete(Product product) {
+        mProductRepository.delete(product);
+    }
 }

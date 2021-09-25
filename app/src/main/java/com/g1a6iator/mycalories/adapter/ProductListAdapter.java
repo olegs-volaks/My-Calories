@@ -10,20 +10,27 @@ import com.g1a6iator.mycalories.model.Product;
 
 public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> {
 
-    public ProductListAdapter(@NonNull DiffUtil.ItemCallback<Product> diffCallback) {
+    public interface ProductOnClickListener {
+        void onDelete(Product product);
+    }
+
+    private final ProductOnClickListener onClickListener;
+
+    public ProductListAdapter(@NonNull DiffUtil.ItemCallback<Product> diffCallback, ProductOnClickListener onClickListener) {
         super(diffCallback);
+        this.onClickListener = onClickListener;
     }
 
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return ProductViewHolder.create(parent);
+        return ProductViewHolder.create(parent, onClickListener);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         Product current = getItem(position);
-        holder.bind(current.getName(), current.getDescription(), current.getCalories());
+        holder.bind(current);
     }
 
     public static class ProductDiff extends DiffUtil.ItemCallback<Product> {

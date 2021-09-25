@@ -46,7 +46,9 @@ public class ProductFragment extends Fragment {
         });
 
         RecyclerView recyclerView = layout.findViewById(R.id.product_recyclerview);
-        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff());
+        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff(), product -> {
+            productViewModel.delete(product);
+        });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         productViewModel.getAllProducts().observe(getViewLifecycleOwner(), products -> {
