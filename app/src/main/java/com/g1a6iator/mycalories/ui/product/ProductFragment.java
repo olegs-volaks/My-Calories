@@ -23,7 +23,6 @@ public class ProductFragment extends Fragment {
 
     private ProductViewModel productViewModel;
     private FragmentProductBinding binding;
-    public static final int NEW_PRODUCT_ACTIVITY_REQUEST_CODE = 1;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
