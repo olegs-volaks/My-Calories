@@ -1,7 +1,5 @@
 package com.g1a6iator.mycalories.model;
 
-import android.icu.math.BigDecimal;
-
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
