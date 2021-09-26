@@ -1,6 +1,5 @@
 package com.g1a6iator.mycalories.adapter;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +31,10 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
         this.itemView = itemView;
     }
 
-    @SuppressLint("SetTextI18n")
     public void bind(Product product) {
         nameView.setText(product.getName());
         descriptionView.setText(product.getDescription());
-        caloriesNumberView.setText(Double.toString(product.getCalories()));
+        caloriesNumberView.setText(String.valueOf(product.getCalories()));
         deleteButtonView.setOnClickListener(view -> {
             onClickListener.onDelete(product);
         });

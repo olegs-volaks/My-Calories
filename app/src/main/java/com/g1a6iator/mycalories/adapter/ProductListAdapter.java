@@ -46,7 +46,8 @@ public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> 
         public boolean areContentsTheSame(@NonNull Product oldItem, @NonNull Product newItem) {
             return oldItem.getName().equals(newItem.getName())
                     && oldItem.getDescription().equals(newItem.getDescription())
-                    && oldItem.getCalories() == newItem.getCalories();
+                    && oldItem.getCalories() == newItem.getCalories()
+                    && oldItem.getId().equals(newItem.getId());
         }
     }
 }
