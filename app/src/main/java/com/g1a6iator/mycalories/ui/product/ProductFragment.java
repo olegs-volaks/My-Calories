@@ -41,7 +41,11 @@ public class ProductFragment extends Fragment {
         });
 
         ActivityResultLauncher<Product> addProductToEatenFoodActivityLauncher = registerForActivityResult(new AddProductToEatenFoodActivityContract(), result -> {
-            productViewModel.addProductToEatenFood(result);
+            if (result != null) {
+                productViewModel.addProductToEatenFood(result);
+            } else {
+                Toast.makeText(getContext(), R.string.eaten_food_not_added, Toast.LENGTH_LONG).show();
+            }
         });
 
         FloatingActionButton addProductButton = layout.findViewById(R.id.product_add_button);

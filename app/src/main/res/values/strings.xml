@@ -16,4 +16,5 @@
     <string name="product_name">Product name:</string>
     <string name="caloric_content">Caloric content:</string>
     <string name="add_new_eaten_food">Add new Eaten food</string>
+    <string name="eaten_food_not_added">Eaten food not added!</string>
 </resources>
