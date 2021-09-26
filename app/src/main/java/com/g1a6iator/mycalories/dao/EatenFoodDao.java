@@ -16,4 +16,10 @@ public abstract class EatenFoodDao implements BaseDao<EatenFood> {
 
     @Query("SELECT * FROM eaten_foods WHERE id = :id")
     public abstract LiveData<EatenFood> getById(long id);
+
+    @Query("SELECT * FROM eaten_foods WHERE date > :millisFrom")
+    public abstract LiveData<List<EatenFood>> getAllFrom(long millisFrom);
+
+    @Query("SELECT SUM(totalCalories) FROM eaten_foods WHERE date > :millisFrom")
+    public abstract LiveData<Double> getTotalCaloriesFrom(long millisFrom);
 }
