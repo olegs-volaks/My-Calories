@@ -10,7 +10,7 @@ import java.util.List;
 
 public class AllEatenFoodViewModel extends ViewModel {
 
-    private LiveData<List<EatenFood>> mEatenFoodList;
+    private final LiveData<List<EatenFood>> mEatenFoodList;
     private final EatenFoodRepository mEatenFoodRepository;
 
     public AllEatenFoodViewModel() {
