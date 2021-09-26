@@ -12,6 +12,8 @@ public class ProductListAdapter extends ListAdapter<Product, ProductViewHolder> 
 
     public interface ProductOnClickListener {
         void onDelete(Product product);
+
+        void onItemClick(Product product);
     }
 
     private final ProductOnClickListener onClickListener;

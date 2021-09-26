@@ -11,6 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCalories">
         <activity
+            android:name=".ui.product.AddProductToEatenFoodActivity"
+            android:exported="true"
+            android:label="@string/add_new_eaten_food" />
+        <activity
             android:name=".ui.product.NewProductActivity"
             android:exported="true"
             android:label="@string/add_new_product" />

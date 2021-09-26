@@ -12,4 +12,8 @@
     <string name="description">Description:</string>
     <string name="calorie_count">Calorie count:</string>
     <string name="add_new_product">Add new product</string>
+    <string name="count">Count:</string>
+    <string name="product_name">Product name:</string>
+    <string name="caloric_content">Caloric content:</string>
+    <string name="add_new_eaten_food">Add new Eaten food</string>
 </resources>

@@ -20,7 +20,7 @@ public class NewProductActivityContract extends ActivityResultContract<Integer, 
 
     @Override
     public Product parseResult(int resultCode, @Nullable Intent intent) {
-        if (resultCode == Activity.RESULT_OK) {
+        if (resultCode == Activity.RESULT_OK && intent != null) {
             Product product = new Product();
             product.setName(intent.getStringExtra(NewProductActivity.PRODUCT_NAME));
             product.setDescription(intent.getStringExtra(NewProductActivity.PRODUCT_DESCRIPTION));

@@ -17,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.g1a6iator.mycalories.R;
 import com.g1a6iator.mycalories.adapter.ProductListAdapter;
 import com.g1a6iator.mycalories.databinding.FragmentProductBinding;
+import com.g1a6iator.mycalories.model.Product;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ProductFragment extends Fragment {
@@ -31,7 +32,7 @@ public class ProductFragment extends Fragment {
 
         binding = FragmentProductBinding.inflate(inflater, container, false);
         View layout = binding.getRoot();
-        ActivityResultLauncher<Integer> activityResultLauncher = registerForActivityResult(new NewProductActivityContract(), result -> {
+        ActivityResultLauncher<Integer> newProductActivityLauncher = registerForActivityResult(new NewProductActivityContract(), result -> {
             if (result != null) {
                 productViewModel.insert(result);
             } else {
@@ -39,14 +40,26 @@ public class ProductFragment extends Fragment {
             }
         });
 
+        ActivityResultLauncher<Product> addProductToEatenFoodActivityLauncher = registerForActivityResult(new AddProductToEatenFoodActivityContract(), result -> {
+            productViewModel.addProductToEatenFood(result);
+        });
+
         FloatingActionButton addProductButton = layout.findViewById(R.id.product_add_button);
         addProductButton.setOnClickListener(view -> {
-            activityResultLauncher.launch(null);
+            newProductActivityLauncher.launch(null);
         });
 
         RecyclerView recyclerView = layout.findViewById(R.id.product_recyclerview);
-        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff(), product -> {
-            productViewModel.delete(product);
+        final ProductListAdapter adapter = new ProductListAdapter(new ProductListAdapter.ProductDiff(), new ProductListAdapter.ProductOnClickListener() {
+            @Override
+            public void onDelete(Product product) {
+                productViewModel.delete(product);
+            }
+
+            @Override
+            public void onItemClick(Product product) {
+                addProductToEatenFoodActivityLauncher.launch(product);
+            }
         });
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -12,9 +12,9 @@ import com.g1a6iator.mycalories.R;
 
 public class NewProductActivity extends AppCompatActivity {
 
-    public static final String PRODUCT_NAME = "com.g1a6iator.mycalories.ui.home.PRODUCT_NAME";
-    public static final String PRODUCT_DESCRIPTION = "com.g1a6iator.mycalories.ui.home.PRODUCT_DESCRIPTION";
-    public static final String PRODUCT_CALORIES = "com.g1a6iator.mycalories.ui.home.PRODUCT_CALORIES";
+    public static final String PRODUCT_NAME = "com.g1a6iator.mycalories.ui.product.PRODUCT_NAME";
+    public static final String PRODUCT_DESCRIPTION = "com.g1a6iator.mycalories.ui.product.PRODUCT_DESCRIPTION";
+    public static final String PRODUCT_CALORIES = "com.g1a6iator.mycalories.ui.product.PRODUCT_CALORIES";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

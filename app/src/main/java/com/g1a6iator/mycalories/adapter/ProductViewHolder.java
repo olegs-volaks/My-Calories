@@ -20,6 +20,7 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
     private final TextView caloriesNumberView;
     private final ImageButton deleteButtonView;
     private final ProductListAdapter.ProductOnClickListener onClickListener;
+    private final View itemView;
 
     public ProductViewHolder(@NonNull View itemView, ProductListAdapter.ProductOnClickListener onClickListener) {
         super(itemView);
@@ -28,6 +29,7 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
         caloriesNumberView = itemView.findViewById(R.id.product_item_calories_number);
         deleteButtonView = itemView.findViewById(R.id.product_item_delete);
         this.onClickListener = onClickListener;
+        this.itemView = itemView;
     }
 
     @SuppressLint("SetTextI18n")
@@ -37,6 +39,9 @@ class ProductViewHolder extends RecyclerView.ViewHolder {
         caloriesNumberView.setText(Double.toString(product.getCalories()));
         deleteButtonView.setOnClickListener(view -> {
             onClickListener.onDelete(product);
+        });
+        itemView.setOnClickListener(view -> {
+            onClickListener.onItemClick(product);
         });
     }
 
