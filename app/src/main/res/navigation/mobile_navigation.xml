@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_product" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.g1a6iator.mycalories.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_today"
+        android:name="com.g1a6iator.mycalories.ui.today_eaten_food.TodayEatenFoodFragment"
+        android:label="@string/title_today"
+        tools:layout="@layout/fragment_today_eaten_food" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.g1a6iator.mycalories.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_all_eaten_food"
+        android:name="com.g1a6iator.mycalories.ui.all_eaten_food.AllEatenFoodFragment"
+        android:label="@string/title_all_eaten_food"
+        tools:layout="@layout/fragment_all_eaten_food" />
 </navigation>

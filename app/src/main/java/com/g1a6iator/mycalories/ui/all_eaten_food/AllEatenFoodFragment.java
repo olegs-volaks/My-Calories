@@ -1,4 +1,4 @@
-package com.g1a6iator.mycalories.ui.notifications;
+package com.g1a6iator.mycalories.ui.all_eaten_food;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.g1a6iator.mycalories.databinding.FragmentNotificationsBinding;
+import com.g1a6iator.mycalories.databinding.FragmentAllEatenFoodBinding;
 
-public class NotificationsFragment extends Fragment {
+public class AllEatenFoodFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private AllEatenFoodViewModel allEatenFoodViewModel;
+    private FragmentAllEatenFoodBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        allEatenFoodViewModel =
+                new ViewModelProvider(this).get(AllEatenFoodViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentAllEatenFoodBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        allEatenFoodViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

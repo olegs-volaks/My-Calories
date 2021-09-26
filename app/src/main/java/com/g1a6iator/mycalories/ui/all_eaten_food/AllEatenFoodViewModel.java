@@ -1,14 +1,14 @@
-package com.g1a6iator.mycalories.ui.notifications;
+package com.g1a6iator.mycalories.ui.all_eaten_food;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class AllEatenFoodViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public AllEatenFoodViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }

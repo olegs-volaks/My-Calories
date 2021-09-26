@@ -1,14 +1,14 @@
-package com.g1a6iator.mycalories.ui.dashboard;
+package com.g1a6iator.mycalories.ui.today_eaten_food;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class DashboardViewModel extends ViewModel {
+public class TodayEatenFoodViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public DashboardViewModel() {
+    public TodayEatenFoodViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");
     }

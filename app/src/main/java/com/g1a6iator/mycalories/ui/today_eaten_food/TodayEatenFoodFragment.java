@@ -1,4 +1,4 @@
-package com.g1a6iator.mycalories.ui.dashboard;
+package com.g1a6iator.mycalories.ui.today_eaten_food;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,23 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.g1a6iator.mycalories.databinding.FragmentDashboardBinding;
+import com.g1a6iator.mycalories.databinding.FragmentTodayEatenFoodBinding;
 
-public class DashboardFragment extends Fragment {
+public class TodayEatenFoodFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
-    private FragmentDashboardBinding binding;
+    private TodayEatenFoodViewModel todayEatenFoodViewModel;
+    private FragmentTodayEatenFoodBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        todayEatenFoodViewModel =
+                new ViewModelProvider(this).get(TodayEatenFoodViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentTodayEatenFoodBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        todayEatenFoodViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
