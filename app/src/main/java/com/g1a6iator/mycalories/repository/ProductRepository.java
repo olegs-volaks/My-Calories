@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ProductRepository {
 
-    private ProductDao mProductDao;
+    private final ProductDao mProductDao;
 
     public ProductRepository() {
         ApplicationDatabase db = MainApplication.getInstance().getDatabase();

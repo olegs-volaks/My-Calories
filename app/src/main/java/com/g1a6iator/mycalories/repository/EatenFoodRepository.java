@@ -13,7 +13,7 @@ import java.util.List;
 
 public class EatenFoodRepository {
 
-    private EatenFoodDao mEatenFoodDao;
+    private final EatenFoodDao mEatenFoodDao;
 
     public EatenFoodRepository() {
         ApplicationDatabase db = MainApplication.getInstance().getDatabase();
@@ -22,6 +22,10 @@ public class EatenFoodRepository {
 
     public LiveData<List<EatenFood>> getAll() {
         return mEatenFoodDao.getAll();
+    }
+
+    public LiveData<List<EatenFood>> getAllDesc() {
+        return mEatenFoodDao.getAllDesc();
     }
 
     public LiveData<EatenFood> getById(long id) {
@@ -38,6 +42,10 @@ public class EatenFoodRepository {
 
     public LiveData<List<EatenFood>> getAllToday() {
         return mEatenFoodDao.getAllFrom(getTodayMidnightInMillis());
+    }
+
+    public LiveData<List<EatenFood>> getAllTodayDesc() {
+        return mEatenFoodDao.getAllFromDesc(getTodayMidnightInMillis());
     }
 
     public LiveData<Double> getTotalCaloriesToday() {

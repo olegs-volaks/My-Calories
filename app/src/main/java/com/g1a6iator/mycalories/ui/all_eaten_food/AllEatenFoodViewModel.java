@@ -15,7 +15,7 @@ public class AllEatenFoodViewModel extends ViewModel {
 
     public AllEatenFoodViewModel() {
         mEatenFoodRepository = new EatenFoodRepository();
-        mEatenFoodList = mEatenFoodRepository.getAll();
+        mEatenFoodList = mEatenFoodRepository.getAllDesc();
     }
 
     public LiveData<List<EatenFood>> getAllEatenFood() {

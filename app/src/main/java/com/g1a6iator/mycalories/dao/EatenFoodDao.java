@@ -14,11 +14,17 @@ public abstract class EatenFoodDao implements BaseDao<EatenFood> {
     @Query("SELECT * FROM eaten_foods")
     public abstract LiveData<List<EatenFood>> getAll();
 
+    @Query("SELECT * FROM eaten_foods ORDER BY id DESC")
+    public abstract LiveData<List<EatenFood>> getAllDesc();
+
     @Query("SELECT * FROM eaten_foods WHERE id = :id")
     public abstract LiveData<EatenFood> getById(long id);
 
     @Query("SELECT * FROM eaten_foods WHERE date > :millisFrom")
     public abstract LiveData<List<EatenFood>> getAllFrom(long millisFrom);
+
+    @Query("SELECT * FROM eaten_foods WHERE date > :millisFrom ORDER BY id DESC")
+    public abstract LiveData<List<EatenFood>> getAllFromDesc(long millisFrom);
 
     @Query("SELECT SUM(totalCalories) FROM eaten_foods WHERE date > :millisFrom")
     public abstract LiveData<Double> getTotalCaloriesFrom(long millisFrom);

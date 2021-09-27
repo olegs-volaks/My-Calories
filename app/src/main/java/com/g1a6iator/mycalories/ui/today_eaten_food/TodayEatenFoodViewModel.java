@@ -17,7 +17,7 @@ public class TodayEatenFoodViewModel extends ViewModel {
     public TodayEatenFoodViewModel() {
         mEatenFoodRepository = new EatenFoodRepository();
         mCaloriesToday = mEatenFoodRepository.getTotalCaloriesToday();
-        mTodayEatenFoodList = mEatenFoodRepository.getAllToday();
+        mTodayEatenFoodList = mEatenFoodRepository.getAllTodayDesc();
     }
 
     public LiveData<Double> getCaloriesToday() {
