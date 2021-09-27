@@ -19,4 +19,5 @@
     <string name="eaten_food_not_added">Eaten food not added!</string>
     <string name="title_today">Today</string>
     <string name="title_all_eaten_food">All</string>
+    <string name="calories_eaten_today">Calories Eaten Today:</string>
 </resources>

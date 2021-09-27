@@ -28,7 +28,7 @@ public class AllEatenFoodFragment extends Fragment {
 
         binding = FragmentAllEatenFoodBinding.inflate(inflater, container, false);
         View layout = binding.getRoot();
-        RecyclerView recyclerView = layout.findViewById(R.id.eaten_food_recyclerview);
+        RecyclerView recyclerView = layout.findViewById(R.id.all_eaten_food_recyclerview);
         final EatenFoodListAdapter adapter = new EatenFoodListAdapter(new EatenFoodListAdapter.EatenFoodDiff(), eatenFood -> {
             allEatenFoodViewModel.delete(eatenFood);
         });

@@ -7,11 +7,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.g1a6iator.mycalories.R;
+import com.g1a6iator.mycalories.adapter.EatenFoodListAdapter;
 import com.g1a6iator.mycalories.databinding.FragmentTodayEatenFoodBinding;
 
 public class TodayEatenFoodFragment extends Fragment {
@@ -25,16 +28,24 @@ public class TodayEatenFoodFragment extends Fragment {
                 new ViewModelProvider(this).get(TodayEatenFoodViewModel.class);
 
         binding = FragmentTodayEatenFoodBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
-
-        final TextView textView = binding.textDashboard;
-        todayEatenFoodViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
+        View layout = binding.getRoot();
+        TextView todayCalories = layout.findViewById(R.id.eaten_food_today_calories);
+        RecyclerView recyclerView = layout.findViewById(R.id.today_eaten_food_recyclerview);
+        todayEatenFoodViewModel.getCaloriesToday().observe(getViewLifecycleOwner(), aDouble -> {
+            if (aDouble == null) {
+                aDouble = 0d;
             }
+            todayCalories.append(" " + aDouble);
         });
-        return root;
+        final EatenFoodListAdapter adapter = new EatenFoodListAdapter(new EatenFoodListAdapter.EatenFoodDiff(), eatenFood -> {
+            todayEatenFoodViewModel.delete(eatenFood);
+        });
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        DividerItemDecoration itemDecoration = new DividerItemDecoration(getContext(), RecyclerView.VERTICAL);
+        recyclerView.addItemDecoration(itemDecoration);
+        todayEatenFoodViewModel.getTodayEatenFoodList().observe(getViewLifecycleOwner(), adapter::submitList);
+        return layout;
     }
 
     @Override
