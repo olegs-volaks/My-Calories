@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.g1a6iator.mycalories.R;
 import com.g1a6iator.mycalories.model.EatenFood;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+
 public class EatenFoodViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView nameView;
@@ -31,7 +35,8 @@ public class EatenFoodViewHolder extends RecyclerView.ViewHolder {
 
     public void bind(EatenFood eatenFood) {
         nameView.setText(eatenFood.getProductName());
-        dateView.setText(eatenFood.getDate().toString());
+        DateFormat dateFormat = SimpleDateFormat.getDateTimeInstance();
+        dateView.setText(dateFormat.format(eatenFood.getDate()));
         caloriesNumberView.setText(String.valueOf(eatenFood.getTotalCalories()));
         deleteButtonView.setOnClickListener(view -> {
             onClickListener.onDelete(eatenFood);
