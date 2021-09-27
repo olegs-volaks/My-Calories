@@ -23,6 +23,8 @@
                 android:id="@+id/eaten_food_today_calories"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                style="@style/RecycleViewTitleText"
+                android:textSize="20sp"
                 android:layout_marginVertical="@dimen/activity_vertical_margin"
                 android:text="@string/calories_eaten_today"
                 app:layout_constraintBottom_toBottomOf="parent"
