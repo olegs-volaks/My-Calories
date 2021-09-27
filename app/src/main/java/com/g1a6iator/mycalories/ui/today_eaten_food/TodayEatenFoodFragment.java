@@ -35,7 +35,7 @@ public class TodayEatenFoodFragment extends Fragment {
             if (aDouble == null) {
                 aDouble = 0d;
             }
-            todayCalories.append(" " + aDouble);
+            todayCalories.setText(String.valueOf(aDouble));
         });
         final EatenFoodListAdapter adapter = new EatenFoodListAdapter(new EatenFoodListAdapter.EatenFoodDiff(), eatenFood -> {
             todayEatenFoodViewModel.delete(eatenFood);
