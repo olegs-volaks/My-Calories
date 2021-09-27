@@ -38,5 +38,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/today_eaten_food_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent" />
 </LinearLayout>
