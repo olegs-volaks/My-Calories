@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.today_eaten_food.TodayEatenFoodFragment">
 
 
@@ -12,10 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-        android:layout_marginVertical="@dimen/activity_vertical_margin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_marginVertical="@dimen/activity_vertical_margin">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -38,7 +36,5 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/today_eaten_food_recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/eaten_food_today_calories_cardView"
-        android:layout_marginVertical="@dimen/activity_vertical_margin" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:layout_height="wrap_content" />
+</LinearLayout>
